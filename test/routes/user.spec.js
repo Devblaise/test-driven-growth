@@ -114,6 +114,15 @@ describe("User test suite", () => {
       });
   });
 
+  //updated delete
+  it("should DELETE /users/:id", () =>
+    request
+      .delete("users/2")
+      .set("Authorization", `Bearer ${TOKEN}`)
+      .then((res) => {
+        expect(res.body.data).to.be.eq(null);
+      }));
+
   it("should DELETE /users/:id", () =>
     request
       .delete("users/2")
