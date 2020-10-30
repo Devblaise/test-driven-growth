@@ -51,6 +51,8 @@ describe("User test suite", () => {
   });
 
   //updated get for TDD
+  });
+
   it("should GET /users with query params", (done) => {
     TEST_URL = "users&page=5&gender=Female&status=Active";
 
