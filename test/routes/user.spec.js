@@ -53,7 +53,10 @@ describe("User test suite", () => {
   //updated get for TDD
   it("should GET /users with query params", (done) => {
     TEST_URL = "users&page=5&gender=Female&status=Active";
+  });
 
+  it("should GET /users with query params", (done) => {
+    TEST_URL = "users&page=5&gender=Female&status=Active";
     request.get(TEST_URL).end((err, res) => {
       expect(res.body.data).to.not.be.empty;
       res.body.data.forEach((data) => {
@@ -99,6 +102,23 @@ describe("User test suite", () => {
 
   // code added  post to update data
   it("should PUT/users/:id", () => {
+    // data to update
+    const data = {
+      status: "Active",
+      name: `Luffy - ${Math.floor(Math.floor() * 9999)}`,
+    };
+
+    return request
+      .put("users/132")
+      .set("Authorization", `Bearer ${TOKEN}`)
+      .send(data)
+      .then((res) => {
+        expect(res.body.data).to.deep.include(data);
+      });
+  });
+
+  // code added  post to update data
+  it("should POST/users/:id", () => {
     // data to update
     const data = {
       status: "Active",
