@@ -50,20 +50,6 @@ describe("User test suite", () => {
     });
   });
 
-  //updated get for TDD
-  it("should GET /users with query params", (done) => {
-    TEST_URL = "users&page=5&gender=Female&status=Active";
-
-    request.get(TEST_URL).end((err, res) => {
-      expect(res.body.data).to.not.be.empty;
-      res.body.data.forEach((data) => {
-        expect(data.gender).to.eq("Female");
-        expect(data.status).to.eq("Active");
-      });
-      done(err);
-    });
-  });
-
   it("should PUT /users/:id", () => {
     // data to update
     const data = {
