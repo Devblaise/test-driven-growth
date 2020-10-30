@@ -97,23 +97,6 @@ describe("User test suite", () => {
       });
   });
 
-  // code added  post to update data
-  it("should PUT/users/:id", () => {
-    // data to update
-    const data = {
-      status: "Active",
-      name: `Luffy - ${Math.floor(Math.floor() * 9999)}`,
-    };
-
-    return request
-      .put("users/132")
-      .set("Authorization", `Bearer ${TOKEN}`)
-      .send(data)
-      .then((res) => {
-        expect(res.body.data).to.deep.include(data);
-      });
-  });
-
   it("should DELETE /users/:id", () =>
     request
       .delete("users/2")
